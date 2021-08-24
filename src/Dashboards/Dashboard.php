@@ -1,6 +1,6 @@
 <?php
 
-namespace Milyoona\NovaHorizon;
+namespace Milyoona\NovaHorizon\Dashboards;
 
 use Milyoona\NovaHorizon\Cards\CompletedJobs;
 use Milyoona\NovaHorizon\Cards\FailedJobs;

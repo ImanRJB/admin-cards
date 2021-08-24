@@ -1,6 +1,6 @@
 <?php
 
-namespace Milyoona\NovaHorizon;
+namespace Milyoona\AdminCards;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
 
-class NovaHorizonServiceProvider extends ServiceProvider
+class AdminCardServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -17,7 +17,7 @@ class NovaHorizonServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-horizon-tool');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'admin-cards-tool');
 
         $this->app->booted(function () {
             $this->routes();
@@ -30,8 +30,8 @@ class NovaHorizonServiceProvider extends ServiceProvider
                 ],
             ]);
 
-            Nova::script('nova-horizon-cards', __DIR__.'/../dist/js/cards.js');
-            Nova::style('nova-horizon-cards', __DIR__.'/../dist/css/cards.css');
+            Nova::script('admin-cards', __DIR__.'/../dist/js/cards.js');
+            Nova::style('admin-cards', __DIR__.'/../dist/css/cards.css');
         });
     }
 
@@ -48,13 +48,8 @@ class NovaHorizonServiceProvider extends ServiceProvider
 
         // Cards
         Route::middleware(['nova'])
-            ->prefix('nova-vendor/nova-horizon')
+            ->prefix('nova-vendor/admin-cards')
             ->group(__DIR__.'/../routes/api.php');
-
-        // Tool
-        Route::middleware(['nova', Authorize::class])
-            ->prefix('nova-vendor/nova-horizon')
-            ->group(__DIR__.'/../routes/authorized.php');
     }
 
     /**
