@@ -25,8 +25,8 @@ class AdminCardServiceProvider extends ServiceProvider
 
         Nova::serving(function (ServingNova $event) {
             Nova::provideToScript([
-                'novaHorizon' => [
-                    'basePath' => Str::start(config('horizon.path'), '/'),
+                'adminCards' => [
+                    'basePath' => Str::start('admin-cards', '/'),
                 ],
             ]);
 
@@ -48,7 +48,7 @@ class AdminCardServiceProvider extends ServiceProvider
 
         // Cards
         Route::middleware(['nova'])
-            ->prefix('nova-vendor/admin-cards')
+            ->prefix('admin-cards')
             ->group(__DIR__.'/../routes/api.php');
     }
 

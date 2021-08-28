@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Milyoona\AdminCards\Http\Controllers\SupervisorController;
+use Milyoona\AdminCards\Http\Controllers\MicroserviceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/endpoint', function (Request $request) {
-//     //
-// });
+// Supervisor
+Route::get('/supervisors', SupervisorController::class . '@index');
+Route::get('/supervisor/start/{microservice}', SupervisorController::class . '@supervisorStart');
+Route::get('/supervisor/restart/{microservice}', SupervisorController::class . '@supervisorRestart');
+Route::get('/supervisor/stop/{microservice}', SupervisorController::class . '@supervisorStop');
+
+// Microservice Status
+Route::get('/microservice/status', MicroserviceController::class . '@index');

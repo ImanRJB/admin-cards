@@ -2,7 +2,7 @@
 
 namespace Milyoona\AdminCards\Cards;
 
-class CompletedJobs extends Card
+class SupervisorStatus extends Card
 {
     /**
      * The width of the card (1/3, 1/2, or full).

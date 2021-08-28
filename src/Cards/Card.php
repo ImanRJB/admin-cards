@@ -1,6 +1,6 @@
 <?php
 
-namespace Milyoona\NovaHorizon\Cards;
+namespace Milyoona\AdminCards\Cards;
 
 use Laravel\Nova\Card as NovaCard;
 
